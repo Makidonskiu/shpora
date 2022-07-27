@@ -18,13 +18,15 @@ import {
   UseEffect,
   Router,
   Context,
-  Form
+  Form,
+  Logo
 } from './components/index';
 
 function App() {
   return (
     <Home>
       <Routes>
+        <Route path="/" element={<Logo />} />
         <Route path="/components" element={<Component />} />
         <Route path="/props" element={<Props />} />
         <Route path="/state" element={<State />} />

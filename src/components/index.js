@@ -13,6 +13,7 @@ import { UseEffect } from "./useEffect/UseEffect";
 import { Router } from "./router/Router"; 
 import { Context } from "./context/Context"; 
 import { Form } from "./form/Form"; 
+import { Logo } from "./Logo";
 
 export {
     Asynchronous,
@@ -30,4 +31,5 @@ export {
     Router,
     Context,
     Form,
+    Logo
 }
