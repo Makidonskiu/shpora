@@ -25,7 +25,7 @@ function App() {
   return (
     <Home>
       <Routes>
-        <Route path="/components" element={<Component />} />
+        <Route path="/shpora/components" element={<Component />} />
         <Route path="/props" element={<Props />} />
         <Route path="/state" element={<State />} />
         <Route path="/lifecycle" element={<LifeCycle />} />
