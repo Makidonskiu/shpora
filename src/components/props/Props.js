@@ -1,5 +1,29 @@
 import React from 'react'
 
+const p1 = `function Welcome(props) {
+  return <h1>Привет, {props.name}</h1>;
+}`
+const p2 = ` class Welcome extends React.Component {
+  render() {
+      return <h1>Привет, {this.props.name}</h1>;
+  }
+}`
+const p3 = `const element = <Welcome name="Алиса" />;`
+const p4 = `function Welcome (props) {
+  return <h1> Привет, {props.name}</h1>;
+}
+
+const element = <Welcome name="Алиса" />;
+ReactDOM.render(
+  element,
+  document.getElementById('root')
+);`
+
+const ul1 = `Мы передаём React-элемент <Welcome name="Алиса"> в ReactDOM.render().`
+const ul2 = `React вызывает наш компонент Welcome с пропсами {name: 'Алиса'}.`
+const ul3 = `Наш компонент Welcome возвращает элемент <h1>Привет, Алиса</h1> в качестве результата.`
+const ul4 = `React DOM делает минимальные изменения в DOM, чтобы получилось <h1>Привет, Алиса</h1>.`
+
 export const Props = () => {
   return (
     <div className='content'>
@@ -10,26 +34,26 @@ export const Props = () => {
       <p className='text-p'>Обратиться к ним можно - props.имя-свойства.</p>
       <p className='text-p'>Props - только для чтения.</p>
 
-      <p className='example'></p>
+      <p className='example'>{p1}</p>
 
       <p className='text-p'>Классовые компоненты свойства принимают по умолчанию и обратиться к ним можно с помощью this.props.имя-свойства.</p>
 
-      <p className='example'></p>
+      <p className='example'>{p2}</p>
 
       <p className='text-p'>Элементы могут описывать и наши собственные компоненты:</p>
 
-      <p className='example'></p>
+      <p className='example'>{p3}</p>
 
       <p className='text-p'>Когда React встречает подобный элемент, он собирает все JSX-атрибуты и дочерние элементы в один объект и передаёт их нашему компоненту. Этот объект называется «пропсы».</p>
       <p className='text-p'>Например, этот компонент выведет «Привет, Алиса» на страницу:</p>
 
-      <p className='example'></p>
+      <p className='example'>{p4}</p>
 
       <ol>
-        {/* <li>Мы передаём React-элемент <{Welcome}  name="Алиса" > в ReactDOM.render().</li> */}
-        {/* <li>React вызывает наш компонент Welcome с пропсами {{name: 'Алиса'}}.</li> */}
-        <li>Наш компонент Welcome возвращает элемент <h5> Привет, Алиса</h5> в качестве результата.</li>
-        <li>React DOM делает минимальные изменения в DOM, чтобы получилось <h5>Привет, Алиса</h5>.</li>
+        <li>{ul1}</li>
+        <li>{ul2}</li>
+        <li>{ul3}</li>
+        <li>{ul4}</li>
       </ol>
     </div>
   )

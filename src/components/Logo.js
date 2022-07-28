@@ -1,7 +1,9 @@
-import React from 'react'
+import React from 'react';
 
 export const Logo = () => {
   return (
-    <div><img src="logo192.png" alt="" /></div>
-  )
-}
+    <div>
+      <img src="image/logo-pages.png" alt="logo" />
+    </div>
+  );
+};

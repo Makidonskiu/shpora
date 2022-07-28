@@ -1,5 +1,104 @@
 import React from 'react'
 
+const p1 = `{
+  "items": [
+    { "id": 1, "name": "Яблоки",  "price": "$2" },
+    { "id": 2, "name": "Персики", "price": "$5" }
+  ] 
+}`
+
+const p2 = `  class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      error: null,
+      isLoaded: false,
+      items: []
+    };
+  }
+
+  componentDidMount() {
+    fetch("https://api.example.com/items")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            items: result.items
+          });
+        },
+        // Примечание: важно обрабатывать ошибки именно здесь, а не в блоке catch(), чтобы не перехватывать 
+        //исключения из ошибок в самих компонентах.
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      )
+  }
+
+  render() {
+    const { error, isLoaded, items } = this.state;
+    if (error) {
+      return <div>Ошибка: {error.message}</div>;
+    } else if (!isLoaded) {
+      return <div>Загрузка...</div>;
+    } else {
+      return (
+        <ul>
+          {items.map(item => (
+            <li key={item.id}>
+              {item.name} {item.price}
+            </li>
+          ))}
+        </ul>
+      );
+    }
+  }
+}`
+const p3 = `function MyComponent() {
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [items, setItems] = useState([]);
+
+  // Примечание: пустой массив зависимостей [] означает, что
+  // этот useEffect будет запущен один раз
+  // аналогично componentDidMount()
+  useEffect(() => {
+    fetch("https://api.example.com/items")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          setIsLoaded(true);
+          setItems(result);
+        },
+        // Примечание: важно обрабатывать ошибки именно здесь, а не в блоке catch(), чтобы не перехватывать 
+        // исключения из ошибок в самих компонентах.
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
+        }
+      )
+  }, [])
+
+  if (error) {
+    return <div>Ошибка: {error.message}</div>;
+  } else if (!isLoaded) {
+    return <div>Загрузка...</div>;
+  } else {
+    return (
+      <ul>
+        {items.map(item => (
+          <li key={item.id}>
+            {item.name} {item.price}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+}`
+
 export const Asynchronous = () => {
   return (
     <div className='content'>
@@ -17,10 +116,10 @@ export const Asynchronous = () => {
       <p className='text-p'>Чтобы выполнить AJAX-запрос к серверу, можете использовать встроенный в браузер метод window.fetch или любую AJAX-библиотеку, например Axios или jQuery AJAX.</p>
       <p className='text-p'>Лучшее место для асинхронного запроса в методе componentDidMount.</p>
       <p className='text-p'>Компонент ниже показывает, как в componentDidMount задать внутреннее состояние из результата AJAX-запроса. Допустим, наш API возвращает следующий JSON-объект:</p>
-      <p className='example'></p>
-      <p className='example'></p>
+      <p className='example'>{p1}</p>
+      <p className='example'>{p2}</p>
       <p className='text-p'>Вот эквивалент с хуками:</p>
-      <p className='example'></p>
+      <p className='example'>{p3}</p>
     </div>
   )
 }

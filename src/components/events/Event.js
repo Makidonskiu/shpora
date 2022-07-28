@@ -2,6 +2,61 @@ import React from 'react';
 
 import './event.css';
 
+const p1 = ` <button onClick={activateLasers}>
+Активировать лазеры
+</button>`
+const p2 = ` function Form() {
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log('Отправлена форма.');
+  }
+  return (
+    <form onSubmit={handleSubmit}>
+      <button type="submit">Отправить</button>
+    </form>
+  );
+}`
+const p3 = ` class Toggle extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {isToggleOn: true};
+
+    // Эта привязка обязательна для работы 'this' в колбэке.
+      this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+      this.setState(prevState => ({
+          isToggleOn: !prevState.isToggleOn
+      }));
+  }
+
+  render() {
+      return (
+          <button className={'toggle__btn'} onClick={this.handleClick}>
+              {this.state.isToggleOn ? 'Включено' : 'Выключено'}
+          </button>
+      );
+  }
+}
+
+      ReactDOM.render(
+      <Toggle />,
+      document.getElementById('root')
+      );`
+const p4 = ` function Toggle() {
+  let [isToggleOn, setIsToggleOn] = useState(true);
+  function handleClick() {
+    setIsToggleOn(!isToggleOn)
+  }
+  return (
+    <button className={'toggle__btn'} onClick={() => handleClick()}>
+      {isToggleOn ? 'Включено' : 'Выключено'}
+    </button>
+  );
+}`
+const p5 = ` <button onClick={(e) => deleteRow(id, e)}>Удалить строку</button>`
+
 export const Event = () => {
   const [isToggleOn, setIsToggleOn] = React.useState(true);
   function handleClick() {
@@ -39,26 +94,26 @@ export const Event = () => {
         <li>Анимация: onAnimationStart, onAnimationEnd, onAnimationIteration</li>
         <li>Переход: onTransitionEnd</li>
       </ul>
-      <p className="example"></p>
+      <p className="example">{p1}</p>
       <p className='text-p'>
         В React нельзя предотвратить обработчик события по умолчанию, вернув false. Нужно явно
         вызвать preventDefault.
       </p>
-      <p className="example"></p>
+      <p className="example">{p2}</p>
       <p className='text-p'>
         В компоненте, определённом с помощью ES6-класса, в качестве обработчика события обычно
         выступает один из методов класса. Например, этот компонент Toggle рендерит кнопку, которая
         позволяет пользователю переключать состояния между «Включено» и «Выключено»:
       </p>
-      <p className="example"></p>
+      <p className="example">{p3}</p>
       <p className='text-p'>Результат кода:</p>
       <button className={'toggle__btn'} onClick={() => handleClick()}>
         {isToggleOn ? 'Включено' : 'Выключено'}
       </button>
       <p className='text-p'>Этот же код, но переписанный на функциональную компоненту:</p>
-      <p className="example"></p>
+      <p className="example">{p4}</p>
       <p className='text-p'>Внутри цикла часто нужно передать дополнительный аргумент в обработчик события. Например, если id — это идентификатор строки, можно использовать следующий вариант:</p>
-      <p className="example"></p>
+      <p className="example">{p5}</p>
     </div>
   );
 };

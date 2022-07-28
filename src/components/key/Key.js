@@ -1,13 +1,26 @@
 import React from 'react'
 
+const p1 = `const numbers = [1, 2, 3, 4, 5];
+const listItems = numbers.map((number) =>
+  <li key={number.toString()}>
+    {number}
+  </li>
+);`
+
+const p2 = `const todoItems = todos.map((todo) =>
+<li key={todo.id}>
+  {todo.text}
+</li>
+);`
+
 export const Key = () => {
   return (
     <div className='content'>
       <h2>Ключи</h2>
       <p className='text-p'>Ключи помогают React определять, какие элементы были изменены, добавлены или удалены. Их необходимо указывать, чтобы React мог сопоставлять элементы массива с течением времени:</p>
-      <p className='example'></p>
+      <p className='example'>{p1}</p>
       <p className='text-p'>Лучший способ выбрать ключ — это использовать строку, которая будет явно отличать элемент списка от его соседей. Чаще всего вы будете использовать ID из ваших данных как ключи:</p>
-      <p className='example'></p>
+      <p className='example'>{p2}</p>
       <p className='text-p'>Ключи нужно определять непосредственно внутри массивов.</p>
       <p className='text-p'>Если не указать ключи, в консоли увидим сообщение: Warning: Each child in an array or iterator should have a unique “key” prop.</p>
       <p className='text-p'>Ключи оптимизируют работу с элементами массивов, уменьшают количество ненужных удалений и созданий элементов.</p>
