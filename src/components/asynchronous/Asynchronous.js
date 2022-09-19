@@ -7,7 +7,8 @@ const p1 = `{
   ] 
 }`
 
-const p2 = `  class MyComponent extends React.Component {
+const p2 = 
+`class MyComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -116,10 +117,10 @@ export const Asynchronous = () => {
       <p className='text-p'>Чтобы выполнить AJAX-запрос к серверу, можете использовать встроенный в браузер метод window.fetch или любую AJAX-библиотеку, например Axios или jQuery AJAX.</p>
       <p className='text-p'>Лучшее место для асинхронного запроса в методе componentDidMount.</p>
       <p className='text-p'>Компонент ниже показывает, как в componentDidMount задать внутреннее состояние из результата AJAX-запроса. Допустим, наш API возвращает следующий JSON-объект:</p>
-      <p className='example'>{p1}</p>
-      <p className='example'>{p2}</p>
+      <pre className='example'>{p1}</pre>
+      <pre className='example'>{p2}</pre>
       <p className='text-p'>Вот эквивалент с хуками:</p>
-      <p className='example'>{p3}</p>
+      <pre className='example'>{p3}</pre>
     </div>
   )
 }

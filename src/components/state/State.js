@@ -2,7 +2,8 @@ import React from 'react';
 
 import './state.css';
 
-const p1 = `class App extends React.Component {
+const p1 = 
+`class App extends React.Component {
   constructor(props) {
       super(props)
       this.state = { username: 'johndoe' }
@@ -17,7 +18,8 @@ const p2 = `this.setState({username:'Mark'});`
 const p3 = `this.setState(() => ({ username: 'Mark' }))`
 const p4 = `import {useState} from 'react';`
 const p5 = `const [name, setName] = useState('Mark');`
-const p6 = `function Counter() {
+const p6 = 
+`function Counter() {
   const [count, setCount] = useState(0);
   return (
     <div className="count">
@@ -44,7 +46,7 @@ export const State = () => {
         состояния компонента необходимо делать внутри компонента – инициализация и обновление
         состояния компонента.
       </p>
-      <p className="example">{p1}</p>
+      <pre className="example">{p1}</pre>
       <p className="text-p">Единственный допустимый способ обновления состояния компонента – через setState().</p>
       <p className="text-p">Так нельзя менять состояние: this.state.username='Mark'</p>
       <p className="text-p">1 способ изменить state:</p>
@@ -67,7 +69,7 @@ export const State = () => {
       </div>
       <p className="text-p">Примером работы со state является счётчик, который изменяется при нажатии на кнопку.</p>
       <p className="text-p">Код имеет следующий вид:</p>
-      <p className="example">{p6}</p>
+      <pre className="example">{p6}</pre>
     </div>
   );
 };

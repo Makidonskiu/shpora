@@ -4,7 +4,8 @@ const p1 = `import {useEffect} from 'react';`
 const p2 = `useEffect ( () => { }, [])`
 const p3 = `useEffect ( () => { }, [name])`
 const p4 = `useEffect ( () => { } )`
-const p5 = `useEffect ( () => {
+const p5 = 
+`useEffect ( () => {
   return () => {};
 })`
 
@@ -27,7 +28,7 @@ export const UseEffect = () => {
       <p className="text-p">UseEffect принимает в качестве первого параметра функцию, второго параметра - нет (аналог componentDidMount + componentDidUpdate).</p>
       <p className='example'>{p4}</p>
       <p className="text-p">UseEffect принимает в качестве первого параметра функцию, которая возвращает другую функцию (аналог componentWillUnmount).</p>
-      <p className='example'>{p5}</p>
+      <pre className='example'>{p5}</pre>
     </div>
   )
 }
